@@ -21,9 +21,6 @@ namespace AspNetCoreVueStarter
         {
             services.AddControllersWithViews();
 
-            // Add AddRazorPages if the app uses Razor Pages.
-            // services.AddRazorPages();
-
             // In production, the Vue files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -63,9 +60,6 @@ namespace AspNetCoreVueStarter
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
-
-                // Add MapRazorPages if the app uses Razor Pages. Since Endpoint Routing includes support for many frameworks, adding Razor Pages is now opt -in.
-                // endpoints.MapRazorPages();
             });
 
             app.UseSpa(spa =>
@@ -79,14 +73,16 @@ namespace AspNetCoreVueStarter
                 {
 
                     // run npm process with client app
-                    if (mode == "start") {
+                    if (mode == "start")
+                    {
                         spa.UseVueCli(npmScript: "serve", port: port, forceKill: true, https: https);
                     }
 
                     // if you just prefer to proxy requests from client app, use proxy to SPA dev server instead,
                     // app should be already running before starting a .NET client:
                     // run npm process with client app
-                    if (mode == "attach") {
+                    if (mode == "attach")
+                    {
                         spa.UseProxyToSpaDevelopmentServer($"{(https ? "https" : "http")}://localhost:{port}"); // your Vue app port
                     }
                 }
