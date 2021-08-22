@@ -1,18 +1,31 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "SoftwareAteliers",
-  "classifications": ["Web", "SPA", "Vue.js"],
+  "classifications": [ "Web", "SPA", "Vue.js" ],
   "identity": "SoftwareAteliers.AspNetCoreVueStarter",
   "name": ".NET Core Vue.js",
+  "postActions": [
+    {
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "condition": "(!skipBuild)",
+      "continueOnError": true,
+      "description": "Restore, then build this project.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet build'"
+        }
+      ]
+    }
+  ],
+  "preferNameDirectory": false,
+  "primaryOutputs": [ { "path": "AspNetCoreVueStarter.csproj" } ],
   "shortName": "vue",
   "sourceName": "AspNetCoreVueStarter",
-  "preferNameDirectory": false,
-  "primaryOutputs": [{ "path": "AspNetCoreVueStarter.csproj" }],
   "sources": [
     {
       "source": "./",
       "target": "./",
-      "exclude": [".template.config/**"]
+      "exclude": [ ".template.config/**" ]
     }
   ],
   "symbols": {
@@ -22,18 +35,5 @@
       "description": "If specified, skips the automatic build of the project on create.",
       "defaultValue": "false"
     }
-  },
-  "postActions": [
-    {
-      "condition": "(!skipBuild)",
-      "description": "Restore, then build this project.",
-      "manualInstructions": [
-        {
-          "text": "Run 'dotnet build'"
-        }
-      ],
-      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
-      "continueOnError": true
-    }
-  ]
+  }
 }
